@@ -61,7 +61,7 @@
                 id="phone"
                 name="phone"
                 type="text"
-                placeholder="請輸入電話"
+                placeholder="請輸入聯絡電話"
                 v-model="user.phone"
                 class="form-control profile-input"
                 :disabled="!edit"
