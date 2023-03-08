@@ -3,7 +3,7 @@
     <table class="table text-white table-hover">
         <thead>
             <tr>
-                <th scope="col">訂單編號</th>
+                <th scope="col" class="mobile-style">訂單編號</th>
                 <th scope="col">訂單日期</th>
                 <th scope="col">訂單狀態</th>
                 <th scope="col">訂單金額</th>
@@ -12,7 +12,7 @@
         </thead>
         <tbody>
             <tr v-for="order in orders" :key="order.id" class="position-relative">
-                <td v-if="!order.is_paid" class="text-white">{{ order.id }}</td>
+                <td v-if="!order.is_paid" class="mobile-style">{{ order.id }}</td>
                 <td v-if="!order.is_paid">{{ order.create_at }}</td>
                 <td v-if="!order.is_paid">{{ orderStatus[order.status] }}</td>
                 <td v-if="!order.is_paid">{{ order.total }}</td>
@@ -44,8 +44,6 @@ export default {
     async getOrders() {
       const res = await this.$http.get(`${VITE_URL}/api/${VITE_PATH}/orders`);
       this.orders = await res.data.orders;
-      console.log(res.data);
-      console.log(this.orders);
     },
   },
   mounted() {
@@ -53,3 +51,11 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.mobile-style {
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+}
+</style>

@@ -87,8 +87,6 @@ export default {
           this.$router.push('/admin/products');
         })
         .catch((err) => {
-          // isLogged.value = false;
-          console.log(err);
           this.$swal.fire({
             icon: 'error',
             title: '很不幸的...',

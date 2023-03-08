@@ -113,7 +113,11 @@ export default {
   methods: {
     async updateUser() {
       if (!this.pwd) {
-        alert('請輸入密碼');
+        this.$swal.fire({
+          icon: 'error',
+          title: '修改失敗',
+          text: '請輸入密碼',
+        });
         return;
       }
       const data = {
@@ -129,8 +133,12 @@ export default {
         .then((res) => {
           this.setUser(res.data);
         })
-        .catch(() => {
-          alert('密碼錯誤');
+        .catch((res) => {
+          this.$swal.fire({
+            icon: 'error',
+            title: '修改失敗',
+            text: res.data.message,
+          });
         });
     },
     ...mapActions(authStore, ['setUser']),
