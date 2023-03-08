@@ -25,7 +25,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ https://inthuang.tw/WineWorld }}
+      url: https://inthuang.tw/WineWorld
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
