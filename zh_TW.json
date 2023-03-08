@@ -1,0 +1,30 @@
+{
+    "code": "zh_TW",
+    "messages": {
+        "alpha": "須以英文組成",
+        "alpha_dash": "此欄須以英數、斜線及底線組成",
+        "alpha_num": "此欄須以英數組成",
+        "alpha_spaces": "此欄須以英文及空格組成",
+        "between": "此欄須介於 0:{min} 至 1:{max}之間",
+        "confirmed": " 不一致",
+        "digits": "此欄須為 0:{length} 位數字",
+        "dimensions": "圖片尺寸不正確。須為 0:{width} x 1:{height} 像素",
+        "email": "此欄須為有效的電子信箱",
+        "excluded": "此欄的選項無效",
+        "ext": "須為有效的檔案",
+        "image": "此欄須為圖片",
+        "one_of": " 此欄的選項無效",
+        "integer": " 此欄須為整數",
+        "length": " 此欄的長度須為 0:{length}",
+        "max": " 此欄不能大於 0:{length} 個字元",
+        "max_value": " 此欄不得大於 0:{max}",
+        "mimes": " 此欄須為有效的檔案類型",
+        "min": " 此欄不能小於 0:{length} 個字元",
+        "min_value": " 此欄不得小於 0:{min}",
+        "numeric": " 此欄須為數字",
+        "regex": "格式錯誤",
+        "required": "{field}為必填",
+        "required_if": " 此欄為必填",
+        "size": " 此欄的檔案須小於 0:{size}KB"
+    }
+}

@@ -1,0 +1,38 @@
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/mixins';
+@import 'variables';
+@import 'bootstrap/scss/bootstrap';
+@import '@sweetalert2/theme-dark/dark.scss';
+
+
+// font
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+
+body {
+    font-family: 'Noto Sans TC';
+    background: $dark;
+    color: white;
+    position: relative;
+}
+
+// scroll bar
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #1E1E1E;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #4F5154;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #600A19;
+}
