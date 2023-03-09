@@ -19,7 +19,7 @@
         </div>
         <div v-if="edit" class="form-group">
           <label for="" class="mb-3">輸入密碼以儲存</label>
-          <input type="text" v-model="pwd" class="form-control text-white">
+          <input type="text" v-model="pwd" class="form-control text-white mb-3">
         </div>
         <VForm @submit="submit">
             <div class="d-flex align-items-center mb-3">
@@ -68,7 +68,7 @@
                 ></VField>
             </div>
             <div class="d-flex align-items-center mb-3">
-                <label for="email" class="text-danger fs-5 mb-2">電子郵件</label>
+                <label for="email" class="text-danger fs-5">電子郵件</label>
                 <VField
                 id="email"
                 name="email"
@@ -79,7 +79,7 @@
                 :disabled="!edit"
                 ></VField>
             </div>
-            <div class="d-flex align-items-center mb-3">
+            <div class="d-md-flex align-items-md-center mb-3">
                 <label for="address" class="text-danger fs-5 mb-2">地址</label>
                 <VField
                 id="address"
@@ -87,7 +87,7 @@
                 type="text"
                 placeholder="請輸入地址"
                 v-model="user.addr"
-                class="form-control mb-3 profile-input"
+                class="address-style form-control ps-0 ps-md-5 mb-3 profile-input"
                 :disabled="!edit"
                 ></VField>
             </div>
@@ -166,6 +166,21 @@ export default {
     width: 10%;
 
     @media screen and (max-width: 992px) {
+    width: 50%;
+  }
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background: url('https://api.iconify.design/material-symbols/date-range-sharp.svg?color=white') no-repeat center center / contain;
+    width: 20px;
+    height: 20px;
+    border-width: thin;
+}
+
+.address-style {
+  width: 100%;
+
+  @media screen and (max-width: 992px) {
     width: 50%;
   }
 }

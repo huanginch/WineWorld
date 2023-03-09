@@ -29,7 +29,8 @@
                     name="password"
                     type="password"
                     class="form-control mb-3 text-white"
-                    rules="required"
+                    rules="required|min:8"
+                    ref="password"
                     :class="{
                         'is-invalid': errors['password'],
                         'is-valid': !errors['password'] && password,
@@ -143,31 +144,22 @@
                     <div class="row mb-3">
                         <div class="col-12 col-md-6 col-lg-4 mb-3 mb-lg-0">
                             <select class="form-select" v-model="city">
-                            <option value="高雄市">高雄市</option>
+                                <option
+                                v-for="item in TaiwanCountryData"
+                                :value="item.CityName"
+                                :key="item.CityName">{{ item.CityName }}</option>
                         </select>
                         </div>
                         <div class="col-12 col-md-6 col-lg-4 mb-3 mb-lg-0">
-                             <select class="form-select" v-model="township">
-                            <option value="鳳山區">鳳山區</option>
-                            <option value="鼓山區">鼓山區</option>
-                            <option value="左營區">左營區</option>
-                        </select>
+                            <select class="form-select" v-model="township">
+                                <option
+                                v-for="areaList in TaiwanCountryData[this.cityIndex]?.AreaList"
+                                :value="areaList.AreaName"
+                                :key="areaList.ZipCode">{{ areaList.AreaName }}</option>
+                            </select>
                         </div>
-                        <div class="col-12 col-lg-4 d-flex">
-                            <label for="postalCode" class="me-2">郵遞區號</label>
-                            <VField
-                            id="postalCode"
-                            name="postalCode"
-                            v-model="postalCode"
-                            type="text"
-                            class="form-control text-white"
-                            rules="numeric|required"
-                            :class="{
-                                'is-invalid': errors['postalCode'],
-                                'is-valid': !errors['postalCode'] && postalCode,
-                            }"
-                            ></VField>
-                            <error-message name="postalCode"></error-message>
+                        <div class="col-12 col-lg-4 d-flex align-items-center">
+                            <p class="mb-0 fs-5">郵遞區號: {{ ZipCode }}</p>
                         </div>
                     </div>
                     <VField
@@ -197,10 +189,13 @@
 </template>
 
 <script>
+import TaiwanCountryData from '../../TaiwanCountryData.json';
+
 export default {
   name: 'RegisterView',
   data() {
     return {
+      TaiwanCountryData,
       email: '',
       password: '',
       passwordConfirm: '',
@@ -209,11 +204,23 @@ export default {
       birth: '',
       phone: '',
       city: '',
+      cityIndex: '',
       township: '',
-      postalCode: '',
+      ZipCode: '',
       address: '',
       isLoading: false,
     };
+  },
+  watch: {
+    city() {
+      this.cityIndex = this.TaiwanCountryData.findIndex((item) => item.CityName === this.city);
+    },
+    township() {
+      const tempArea = this.TaiwanCountryData[this.cityIndex].AreaList.find(
+        (item) => item.AreaName === this.township,
+      );
+      this.ZipCode = tempArea.ZipCode;
+    },
   },
   methods: {
     register() {
@@ -228,10 +235,21 @@ export default {
       };
       this.$http.post('https://wineworld-api.onrender.com/users', data)
         .then(() => {
-          alert('註冊成功');
+          this.$swal({
+            title: '註冊成功',
+            icon: 'success',
+            timer: 2000,
+            showConfirmButton: false,
+          });
           this.$router.push('/login');
         }).catch((error) => {
-          console.log(error);
+          this.$swal({
+            title: '註冊失敗',
+            text: error.response.data,
+            icon: 'error',
+            timer: 2000,
+            showConfirmButton: false,
+          });
         });
     },
   },

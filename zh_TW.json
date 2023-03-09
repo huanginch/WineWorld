@@ -1,12 +1,25 @@
 {
     "code": "zh_TW",
+    "names": {
+        "username": "帳號",
+        "pwd": "密碼",
+        "email": "電子信箱",
+        "account": "帳號",
+        "password": "密碼",
+        "passwordConfirm": "確認密碼",
+        "phone": "電話",
+        "address": "地址",
+        "name": "姓名",
+        "birth": "生日",
+        "postalCode": "郵遞區號"
+    },
     "messages": {
         "alpha": "須以英文組成",
         "alpha_dash": "此欄須以英數、斜線及底線組成",
         "alpha_num": "此欄須以英數組成",
         "alpha_spaces": "此欄須以英文及空格組成",
         "between": "此欄須介於 0:{min} 至 1:{max}之間",
-        "confirmed": " 不一致",
+        "confirmed": "此欄須與密碼欄位相同",
         "digits": "此欄須為 0:{length} 位數字",
         "dimensions": "圖片尺寸不正確。須為 0:{width} x 1:{height} 像素",
         "email": "此欄須為有效的電子信箱",

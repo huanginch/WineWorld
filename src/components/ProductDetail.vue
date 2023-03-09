@@ -90,8 +90,9 @@
         <p>產地: {{ targetProduct.country }}</p>
         <p>容量: {{ targetProduct.capacity }}</p>
       </div>
-      <div class="d-flex flex-column flex-md-row justify-content-between align-items-start">
-        <div class="d-flex justify-content-between align-items-center me-md-5 mb-3 mb-me-0">
+      <div class="d-flex flex-column flex-md-row justify-content-lg-between align-items-start">
+      <div
+      class="buy-section d-flex justify-content-between align-items-center me-md-5 mb-3 mb-me-0">
           <a href="#"
           @click.prevent="qty > 1 ? qty-- : qty = 1"
           >
@@ -118,14 +119,14 @@
         </div>
         <button
           type="button"
-          class="btn btn-outline-primary rounded-0 me-0 mb-3 mb-md-0 me-md-3"
+          class="btn btn-outline-primary rounded-0 me-0 mb-3 mb-md-0 me-md-3 buy-section"
           @click="addToCart(targetProduct.id, qty);"
         >
           加入購物車
         </button>
         <router-link
           to="/checkout"
-          class="btn btn-primary text-white"
+          class="btn btn-primary text-white buy-section"
           @click="addToCart(targetProduct.id, qty)"
           >直接購買</router-link
         >
@@ -291,6 +292,14 @@ input:focus-visible {
 
   &:hover {
     color: #FF4D6D;
+  }
+}
+
+.buy-section {
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    width: auto;
   }
 }
 </style>

@@ -153,8 +153,8 @@
             class="form-check-input ms-5 me-2 border-danger"
             @change="isElectronic = !isElectronic"
             />
-            <label for="invoice3" class="me-5">電子發票</label>
-            <div v-if="isElectronic" class="d-inline">
+            <label for="invoice3" class="me-5 mb-3 mb-md-0">電子發票</label>
+            <div v-if="isElectronic" class="d-md-inline mb-3 mb-md-0">
                 <label for="carrier" class="me-5">手機載具</label>
                 <input
                 type="text"
@@ -163,8 +163,11 @@
                 name="carrier"
                 class="bg-dark border-white rounded-2 text-white">
             </div>
-            <input type="checkbox" class="form-check-input ms-5 me-2 border-danger rounded-circle">
-            <label for="carrier" class="me-5">統編</label>
+            <div class="d-lg-inline">
+              <input type="checkbox"
+              class="form-check-input mb-3 mb-0 ms-lg-5 border-danger rounded-circle">
+              <label for="carrier" class="mx-3">統編</label>
+            </div>
             <input
             type="text"
             :value="carrier"
@@ -235,7 +238,12 @@ export default {
           // 關閉 loading
           this.isLoading = false;
           // 顯示訊息
-          alert(res.data.message);
+          this.$swal({
+            icon: 'success',
+            title: '訂單已送出',
+            text: res.response.data.message,
+            confirmButtonText: '確認',
+          });
           // 清空表單
           this.user = {
             name: '',
@@ -246,10 +254,14 @@ export default {
           this.message = '';
           // 回到首頁
           this.$router.push('/');
-          // this.$router.push(`/payment/:${res.data.orderId}`);
         })
         .catch((err) => {
-          alert(err.response.data.message);
+          this.$swal({
+            icon: 'error',
+            title: '訂單送出失敗',
+            text: err.response.data.message,
+            confirmButtonText: '確認',
+          });
         });
     },
     ...mapActions(cartStore, ['getCart']),

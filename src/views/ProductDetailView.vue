@@ -1,7 +1,7 @@
 <template>
     <div class="container pt-11">
       <ProductDetail :target-product="product" class="mt-11 mb-8"></ProductDetail>
-      <h3 class="text-danger mb-5">你可能會喜歡</h3>
+      <h3 class="text-danger mt-8 mt-lg-0">你可能會喜歡</h3>
       <RelatedProduct :related-products="relatedProducts" class="mt-11"></RelatedProduct>
     </div>
     <PageLoading :active="isLoading"></PageLoading>

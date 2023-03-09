@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia';
 
 import axios from 'axios';
-import swal from 'sweetalert2';
 
 export default defineStore('authStore', {
   state: () => ({
@@ -31,13 +30,7 @@ export default defineStore('authStore', {
         .then((response) => {
           this.setUser(response.data);
           this.setLogged();
-        }).catch((error) => {
-          swal.fire({
-            icon: 'error',
-            title: '好像出了點問題',
-            text: error.response.data.message,
-          });
-        });
+        }).catch(() => {});
     },
   },
 });

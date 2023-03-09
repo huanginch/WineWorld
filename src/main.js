@@ -18,7 +18,7 @@ import {
 }
   from 'vee-validate';
 import {
-  required, email, min, numeric,
+  required, email, min, numeric, confirmed,
 } from '@vee-validate/rules';
 import { localize, setLocale } from '@vee-validate/i18n';
 import zhTW from '../zh_TW.json';
@@ -37,6 +37,7 @@ defineRule('required', required);
 defineRule('email', email);
 defineRule('min', min);
 defineRule('numeric', numeric);
+defineRule('confirmed', confirmed);
 configure({
   // Generates an English message locale generator
   generateMessage: localize({ zh_TW: zhTW }),

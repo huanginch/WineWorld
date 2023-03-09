@@ -34,7 +34,8 @@
       >
         <iconify-icon
         v-if="!menuDropdown"
-        icon="ic:outline-menu" @click="toggleMenuDropdown"
+        @click="toggleMenuDropdown"
+        icon="ic:outline-menu"
         ></iconify-icon>
         <iconify-icon
         v-else
@@ -45,16 +46,18 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-lg-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <RouterLink class="nav-link py-0" aria-current="page" to="/product"
+            <RouterLink @click="toggleMenu"
+            class="nav-link py-0" aria-current="page" to="/product"
               >商品列表
               </RouterLink>
           </li>
           <li class="nav-item me-lg-5">
-            <RouterLink class="nav-link p-0" to="/faq">常見問題</RouterLink>
+            <RouterLink @click="toggleMenu" class="nav-link p-0" to="/faq">常見問題</RouterLink>
           </li>
-          <li v-if="!isLogged" class="login mt-auto mt-lg-0">
+          <li v-if="!isLogged" class="login mt-auto mt-lg-0 pb-3 pb-lg-0">
             <RouterLink
               class="btn btn-primary text-white py-3"
+              @click="toggleMenu"
               to="/login"
               >登入/註冊</RouterLink
             >
@@ -102,16 +105,21 @@
                 <RouterLink
                   class="dropdown-item text-white"
                   to="/member/profile"
+                  @click="toggleMenu"
                   >個人資料</RouterLink
                 >
               </li>
               <li>
-                <RouterLink class="dropdown-item text-white" to="/member/orders"
+                <RouterLink
+                @click="toggleMenu"
+                class="dropdown-item text-white"
+                to="/member/orders"
                   >訂單查詢</RouterLink
                 >
               </li>
               <li>
                 <RouterLink
+                @click="toggleMenu"
                   class="dropdown-item text-white"
                   to="/member/favorites"
                   >我的收藏</RouterLink
@@ -170,6 +178,11 @@ export default {
     },
     toggleMenuDropdown() {
       this.menuDropdown = !this.menuDropdown;
+    },
+    toggleMenu() {
+      const bsCollapse = new window.bootstrap.Collapse(document.getElementById('navbarSupportedContent'));
+      bsCollapse.toggle();
+      this.toggleMenuDropdown();
     },
     logout() {
       this.clearLogged();
