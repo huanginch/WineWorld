@@ -52,7 +52,7 @@
     <div class="type mb-6 mb-lg-11 w-100">
       <div class="col-12 px-0 d-flex flex-column flex-lg-row">
           <router-link to="/product?category=威士忌" class="position-relative">
-            <img src="/種類01.png" class="image-fluid" alt="whisky">
+            <img loading="lazy" src="/種類01.png" class="image-fluid" alt="whisky">
             <div class="text-center position-absolute top-50 start-50 translate-middle">
               <h3>威士忌</h3>
               <p>單麥精釀，精湛工藝</p>
@@ -60,7 +60,7 @@
             </div>
           </router-link>
           <router-link to="/product?category=紅白酒" class="position-relative">
-            <img src="/種類02.png" class="image-fluid" alt="wine">
+            <img loading="lazy" src="/種類02.png" class="image-fluid" alt="wine">
             <div class="text-center position-absolute top-50 start-50 translate-middle">
               <h3>紅白酒</h3>
               <p>辛香滿溢，時光醇熟</p>
@@ -70,7 +70,7 @@
       </div>
       <div class="px-0 d-flex flex-column flex-lg-row w-100">
           <router-link to="/product?category=日本酒" class="type position-relative">
-            <img src="/種類03.png" class="image-fluid" alt="sake">
+            <img loading="lazy" src="/種類03.png" class="image-fluid" alt="sake">
             <div class="text-center position-absolute top-50 start-50 translate-middle">
               <h3>日本酒</h3>
               <p>清香獨特，米香濃郁</p>
@@ -78,7 +78,7 @@
             </div>
           </router-link>
           <router-link to="/product?category=利口酒" class="type position-relative">
-            <img src="/種類04.png" class="image-fluid" alt="liquir">
+            <img loading="lazy" src="/種類04.png" class="image-fluid" alt="liquir">
             <div class="text-center position-absolute top-50 start-50 translate-middle">
               <h3>利口酒</h3>
               <p>巧手製作，風味多樣</p>
@@ -102,19 +102,19 @@
           <button type="button" class="btn btn-outline-primary text-white">查看更多</button>
         </div>
         <a href="https://enjoyer.pixnet.net/blog/post/28865495" class="col-6 col-xl-3 position-relative mb-45 mb-xl-0">
-          <img src="/文章01.png" alt="screwdriver">
+          <img loading="lazy" src="/文章01.png" alt="screwdriver">
           <p class="cocktail_name fs-5 position-absolute bottom-0 text-white">螺絲起子</p>
         </a>
         <a href="https://www.52does.com/%E3%80%90%E8%AA%BF%E9%85%92-%E7%B6%93%E5%85%B8%E3%80%91%E8%97%8D%E8%89%B2%E7%8F%8A%E7%91%9A%E7%A4%81-blue-lagoon/" class="col-6 col-xl-3 position-relative mb-45 mb-xl-0">
-          <img src="/文章02.png" alt="blue lagoon">
+          <img loading="lazy" src="/文章02.png" alt="blue lagoon">
           <p class="cocktail_name fs-5 position-absolute bottom-0 text-white">藍色珊瑚礁</p>
         </a>
         <a href="https://www.1shot.tw/17999/%E8%AA%BF%E9%85%92%E7%9F%A5%E8%AD%98-%E6%95%99%E7%88%B6-godfather%EF%BC%8D%E4%BD%A0%E4%B8%8D%E8%83%BD%E6%8B%92%E7%B5%95%E7%9A%84%E8%AA%BF%E9%85%92" class="col-6 col-xl-3 position-relative">
-          <img src="/文章03.png" alt="godfather">
+          <img loading="lazy" src="/文章03.png" alt="godfather">
           <p class="cocktail_name fs-5 position-absolute bottom-0 text-white">教父</p>
         </a>
         <a href="https://enjoyer.pixnet.net/blog/post/22861073-%E9%85%92%E8%AD%9C%E5%B0%88%E5%8D%80%EF%BC%882%EF%BC%89%E7%AC%AC%E4%B8%80%E6%9D%AF%E9%85%92---%E7%90%B4%E9%80%9A%E5%AF%A7%EF%BC%88gin-tonic%EF%BC%89" class="col-6 col-xl-3 position-relative">
-          <img src="/文章04.png" alt="gin tonic">
+          <img loading="lazy" src="/文章04.png" alt="gin tonic">
           <p class="cocktail_name fs-5 position-absolute bottom-0 text-white">琴通寧</p>
         </a>
       </div>
