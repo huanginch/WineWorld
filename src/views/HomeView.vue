@@ -150,6 +150,13 @@ export default {
       isLoading: false,
     };
   },
+  watch: {
+    hotProduct4() {
+      if (this.hotProduct4.imageUrl !== undefined) {
+        this.isLoading = false;
+      }
+    },
+  },
   methods: {
     ...mapActions(cartStore, ['getCart']),
     ...mapActions(productsStore, ['getProductById']),
@@ -165,9 +172,6 @@ export default {
     this.hotProduct2 = await this.getProductById('-NLF79_jCIELkDce9GKP');
     this.hotProduct3 = await this.getProductById('-NLFDiNXM4z1EVVDZ6Ju');
     this.hotProduct4 = await this.getProductById('-NLFB9hvdEStrhLPcYXV');
-  },
-  beforeUpdate() {
-    this.isLoading = false;
   },
   components: {
     WarningComponent,
