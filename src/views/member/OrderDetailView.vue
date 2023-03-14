@@ -23,8 +23,7 @@ export default {
         .then((res) => {
           this.order = res.data.order;
         })
-        .catch((err) => {
-          console.log(err);
+        .catch(() => {
         });
     },
   },

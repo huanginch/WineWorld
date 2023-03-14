@@ -52,11 +52,7 @@ export default {
     ...mapActions(favProductStore, ['getFavProducts', 'removeFavProduct']),
   },
   mounted() {
-    this.getFavProducts()
-      .then(() => {})
-      .catch((err) => {
-        console.log(err);
-      });
+    this.getFavProducts();
   },
 };
 </script>

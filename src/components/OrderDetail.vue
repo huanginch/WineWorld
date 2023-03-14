@@ -51,7 +51,6 @@ export default {
     order: {
       handler() {
         this.targetOrder = JSON.parse(JSON.stringify(this.order));
-        console.log(this.targetOrder);
       },
       deep: true,
     },
