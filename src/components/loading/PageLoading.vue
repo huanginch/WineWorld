@@ -22,6 +22,19 @@ export default {
       animation: null,
     };
   },
+  watch: {
+    active() {
+      const body = document.querySelector('body');
+      const html = document.querySelector('html');
+      if (this.active) {
+        body.style.overflow = 'hidden';
+        html.style.overflow = 'hidden';
+      } else {
+        body.style.overflow = 'auto';
+        html.style.overflow = 'auto';
+      }
+    },
+  },
   mounted() {
     this.animation = lottie.loadAnimation({
       container: this.$refs.animation,
