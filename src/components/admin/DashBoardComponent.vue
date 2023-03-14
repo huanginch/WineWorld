@@ -8,32 +8,18 @@
 </template>
 
 <script>
-const { VITE_APP_URL } = import.meta.env;
 
 export default {
   name: 'DashBoard',
   methods: {
     signOut() {
       document.cookie = 'adminToken=';
-      this.$http.post(`${VITE_APP_URL}/logout`)
-        .then((res) => {
-          this.$swal.fire({
-            icon: 'success',
-            title: '掰掰',
-            tesxt: res.data.message,
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          //   isLogged = false;
-          this.$router.push('/');
-        })
-        .catch((err) => {
-          this.$swal.fire({
-            icon: 'error',
-            title: '掰掰失敗',
-            text: err.response.data.message,
-          });
-        });
+      this.$swal({
+        title: '登出成功',
+        icon: 'success',
+        timer: 1500,
+        showConfirmButton: false,
+      });
     },
   },
 };
