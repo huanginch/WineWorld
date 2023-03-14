@@ -7,7 +7,7 @@
     aria-labelledby="productModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-xl">
-        <div class="modal-content rounded-0">
+        <div class="modal-content bg-dark rounded-0">
             <div class="modal-header bg-secondary rounded-0">
                 <h5
                 class="modal-title text-white"
@@ -179,7 +179,7 @@
                             <div class="mb-3">
                                 <input
                                 v-model="tempProduct.is_enabled"
-                                class="form-check-input me-2" type="checkbox"
+                                class="form-check-input me-2 border-white" type="checkbox"
                                 :value="tempProduct.is_enabled"
                                 id="productIsEnabled">
                                 <label class="form-check-label" for="productIsEnabled">
@@ -206,7 +206,7 @@
                                 <div class="d-flex align-items-center custom-file mb-2">
                                     <div>
                                       <label
-                                      class="custom-file-label bg-secondary px-3 py-2"
+                                      class="custom-file-label bg-primary px-3 py-2"
                                       for="inputGroupFile01">選擇檔案</label>
                                       <input
                                       @change="uploadImg"
@@ -235,12 +235,12 @@
                                     placeholder="請輸入圖片連結"></VField>
                                     <img v-if="img" :src="img" :alt="index" class="img-fluid mb-2">
                                     <button type="button"
-                                    class="btn btn-outline-primary w-25"
+                                    class="btn btn-outline-success w-25"
                                     @click="removeOtherImg(index)">刪除</button>
                                 </div>
                                 <button v-if="showAddImgBtn"
                                 type="button"
-                                class="btn btn-outline-secondary w-25"
+                                class="btn btn-primary text-white w-25"
                                 @click="this.tempProduct.imagesUrl.push('');">新增圖片</button>
                             </div>
                         </div>
@@ -256,7 +256,7 @@
                 </button>
                 <button
                 type="button"
-                class="btn btn-secondary"
+                class="btn btn-success text-white"
                 @click="submit();
                 this.hideModal();"
                 >{{ isNew ? "新增" : "修改" }}</button>

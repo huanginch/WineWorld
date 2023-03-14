@@ -75,9 +75,8 @@ export default {
           password,
         })
         .then((res) => {
-          // isLogged.value = true;
           const { token, expired } = res.data;
-          document.cookie = `hexToken=${token}; expired=${new Date(expired)};`;
+          document.cookie = `adminToken=${token}; expired=${new Date(expired)};`;
           this.$swal.fire({
             icon: 'success',
             title: '登入成功',
@@ -94,7 +93,6 @@ export default {
           });
         });
     },
-    // ...mapActions(authStore, ['checkAuth']),
   },
 };
 

@@ -14,15 +14,15 @@
             </thead>
             <tbody>
                 <tr v-for="order in orders" :key="order.id">
-                <th>{{ order.id }}</th>
-                <td>{{ order.create_at }}</td>
-                <td>{{ order.user.name }}</td>
-                <td>{{ order.total }}</td>
+                <td v-if="!order.is_paid">{{ order.id }}</td>
+                <td v-if="!order.is_paid">{{ order.create_at }}</td>
+                <td v-if="!order.is_paid">{{ order.user?.name }}</td>
+                <td v-if="!order.is_paid">{{ order.total }}</td>
                 <td v-if="order.status==0">已成立 </td>
                 <td v-if="order.status==1">未處理</td>
                 <td v-if="order.status==2">已出貨</td>
                 <td v-if="order.status==3">已完成</td>
-                <td>
+                <td v-if="!order.is_paid">
                     <button
                     type="button"
                     class="btn btn-primary text-white me-3"
@@ -41,7 +41,8 @@
                 </tr>
             </tbody>
         </table>
-        <PaginationComponent :pages="pagination"></PaginationComponent>
+        <PaginationComponent :current_page="pagination.current_page"
+        :total_pages="pagination.total_pages" @page-changed="changePage"></PaginationComponent>
     </div>
     <orderModal ref="orderModal" :order="order" @update-order="updateOrder"></orderModal>
     <DelConfirmModal ref="delModal" :message="message" :delFunc="delFunc"/>
@@ -50,14 +51,12 @@
 </template>
 
 <script>
-// import { mapActions } from 'pinia';
-// import authStore from '../../stores/authStore';
-// import orderModal from '../../components/OrderModal.vue';
-// import DelConfirmModal from '../../components/DelConfirmModal.vue';
-// import PaginationComponent from '../../components/PaginationComponent.vue';
-// import PageLoading from '../../components/PageLoading.vue';
+import orderModal from '../../components/admin/OrderModal.vue';
+import DelConfirmModal from '../../components/DelConfirmModal.vue';
+import PaginationComponent from '../../components/PaginationComponent.vue';
+import PageLoading from '../../components/loading/PageLoading.vue';
 
-const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
+const { VITE_URL, VITE_PATH } = import.meta.env;
 
 export default {
   name: 'OrdersView',
@@ -74,9 +73,9 @@ export default {
   },
   methods: {
     getOrders(page = 1) {
-      this.loading = true;
+      // this.loading = true;
       this.$http
-        .get(`${VITE_APP_URL}/api/${VITE_APP_PATH}/admin/orders?page=${page}`)
+        .get(`${VITE_URL}/api/${VITE_PATH}/admin/orders?page=${page}`)
         .then((res) => {
           this.loading = false;
           this.orders = res.data.orders;
@@ -97,7 +96,7 @@ export default {
     },
     updateOrder(order) {
       this.loading = true;
-      this.$http.put(`${VITE_APP_URL}/api/${VITE_APP_PATH}/admin/order/${order.id}`, { data: order })
+      this.$http.put(`${VITE_URL}/api/${VITE_PATH}/admin/order/${order.id}`, { data: order })
         .then((res) => {
           this.loading = false;
           this.responseMessage = res.data.message;
@@ -121,7 +120,7 @@ export default {
     deleteOrder(id) {
       this.loading = true;
       this.$http
-        .delete(`${VITE_APP_URL}/api/${VITE_APP_PATH}/admin/order/${id}`)
+        .delete(`${VITE_URL}/api/${VITE_PATH}/admin/order/${id}`)
         .then((res) => {
           this.loading = false;
           this.responseMessage = res.data.message;
@@ -145,18 +144,16 @@ export default {
     changePage(page) {
       this.getOrders(page);
     },
-    // ...mapActions(authStore, ['checkAuth']),
   },
   mounted() {
-    // this.checkAuth();
     this.getOrders();
   },
-//   components: {
-//     orderModal,
-//     DelConfirmModal,
-//     PaginationComponent,
-//     PageLoading,
-//   },
+  components: {
+    orderModal,
+    DelConfirmModal,
+    PaginationComponent,
+    PageLoading,
+  },
 };
 </script>
 

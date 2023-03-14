@@ -14,6 +14,7 @@ export default {
   name: 'DashBoard',
   methods: {
     signOut() {
+      document.cookie = 'adminToken=';
       this.$http.post(`${VITE_APP_URL}/logout`)
         .then((res) => {
           this.$swal.fire({

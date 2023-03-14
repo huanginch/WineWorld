@@ -50,7 +50,8 @@
                 </tr>
             </tbody>
         </table>
-        <PaginationComponent :pages="pagination" @changePage="changePage"/>
+        <PaginationComponent :current_page="pagination.current_page"
+        :total_pages="pagination.total_pages" @page-changed="changePage"/>
     </div>
 
     <ProductModal ref="pModal" :product="product" :isNew="isNew" @update-product="updateProduct"/>
@@ -60,11 +61,10 @@
 
 <script>
 // import { mapActions } from 'pinia';
-// import authStore from '../../stores/authStore';
-// import ProductModal from '../../components/ProductModal.vue';
-// import DelConfirmModal from '../../components/DelConfirmModal.vue';
-// import PaginationComponent from '../../components/PaginationComponent.vue';
-// import PageLoading from '../../components/PageLoading.vue';
+import ProductModal from '../../components/admin/ProductModal.vue';
+import DelConfirmModal from '../../components/DelConfirmModal.vue';
+import PaginationComponent from '../../components/PaginationComponent.vue';
+import PageLoading from '../../components/loading/PageLoading.vue';
 
 const { VITE_URL, VITE_PATH } = import.meta.env;
 
@@ -163,12 +163,12 @@ export default {
   mounted() {
     this.getProducts();
   },
-//   components: {
-//     ProductModal,
-//     DelConfirmModal,
-//     PaginationComponent,
-//     PageLoading,
-//   },
+  components: {
+    ProductModal,
+    DelConfirmModal,
+    PaginationComponent,
+    PageLoading,
+  },
 };
 
 </script>

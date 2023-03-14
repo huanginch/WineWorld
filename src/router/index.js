@@ -1,5 +1,8 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
+import axios from 'axios';
 import authStore from '../stores/authStore';
+
+const { VITE_URL } = import.meta.env;
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -122,6 +125,17 @@ const router = createRouter({
           },
         },
       ],
+      beforeEnter: (to, from, next) => {
+        const token = document.cookie.replace(/(?:(?:^|.*;\s*)adminToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
+        axios.defaults.headers.common.Authorization = token;
+        axios.post(`${VITE_URL}/api/user/check`).then((res) => {
+          if (res.data.success) {
+            next();
+          } else {
+            next('/admin-login');
+          }
+        });
+      },
     },
     {
       path: '/:pathMatch(.*)*',

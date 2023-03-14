@@ -180,9 +180,12 @@ export default {
       this.menuDropdown = !this.menuDropdown;
     },
     toggleMenu() {
-      const bsCollapse = new window.bootstrap.Collapse(document.getElementById('navbarSupportedContent'));
-      bsCollapse.toggle();
-      this.toggleMenuDropdown();
+      const windowSize = window.innerWidth;
+      if (windowSize < 992) {
+        const bsCollapse = new window.bootstrap.Collapse(document.getElementById('navbarSupportedContent'));
+        bsCollapse.toggle();
+        this.toggleMenuDropdown();
+      }
     },
     logout() {
       this.clearLogged();

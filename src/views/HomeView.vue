@@ -120,6 +120,7 @@
       </div>
     </div>
     <WarningComponent class="warning position-fixed bottom-0 start-0 end-0"/>
+    <PageLoading :active="isLoading"></PageLoading>
   </section>
 </template>
 
@@ -134,6 +135,7 @@ import favProductStore from '../stores/favProductStore';
 import ProductCard from '../components/ProductCard.vue';
 import WarningComponent from '../components/WarningComponent.vue';
 import WineFAQ from '../components/WineFAQ.vue';
+import PageLoading from '../components/loading/PageLoading.vue';
 
 export default {
   name: 'HomeView',
@@ -145,6 +147,7 @@ export default {
       hotProduct4: {},
       searchIsActive: false,
       searchContent: '',
+      isLoading: false,
     };
   },
   methods: {
@@ -154,6 +157,7 @@ export default {
     ...mapActions(authStore, ['checkAuth']),
   },
   async created() {
+    this.isLoading = true;
     await this.getCart();
     await this.getFavProducts();
     await this.checkAuth();
@@ -162,10 +166,14 @@ export default {
     this.hotProduct3 = await this.getProductById('-NLFDiNXM4z1EVVDZ6Ju');
     this.hotProduct4 = await this.getProductById('-NLFB9hvdEStrhLPcYXV');
   },
+  beforeUpdate() {
+    this.isLoading = false;
+  },
   components: {
     WarningComponent,
     ProductCard,
     WineFAQ,
+    PageLoading,
   },
 };
 </script>
