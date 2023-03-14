@@ -1,8 +1,13 @@
 <template>
   <teleport to='body'>
-    <div class='loading' :class="{ 'd-none': !active }" ref='loading'>
-        <div class="animation" ref="animation">
-        </div>
+    <div
+    class='loading'
+    @wheel.prevent
+    @touchmove.prevent
+    @scroll.prevent
+    :class="{ 'd-none': !active }"
+    ref='loading'>
+        <div class="animation" ref="animation"></div>
     </div>
   </teleport>
 </template>
