@@ -1,5 +1,5 @@
 <template>
-  <div class="productDetail d-flex flex-column flex-lg-row justify-content-center">
+  <div class="productDetail d-flex flex-column flex-lg-row justify-content-center mb-10">
     <div class="me-md-10">
       <VSwiper
       :slides-per-view="1"
@@ -8,12 +8,12 @@
       :navigation="true"
       :thumbs="{ swiper: thumbsSwiper }"
       :modules="modules"
-      class="mySwiper mb-3"
-    >
+      class="mySwiper mb-5"
+      >
       <SwiperSlide>
          <div class="img-container">
           <img
-          class="me-5"
+          class="m-5"
           :src="targetProduct.imageUrl"
           :alt="targetProduct.title"
           />
@@ -22,7 +22,7 @@
       <SwiperSlide v-for="(img, index) in targetProduct.imagesUrl" :key="img">
         <div class="img-container">
           <img
-          class="me-5"
+          class="m-5"
           :src="img"
           :alt="targetProduct.title + index"
           />
@@ -30,30 +30,31 @@
       </SwiperSlide>
     </VSwiper>
     <VSwiper
-    @swiper="setThumbsSwiper"
-    :loop="true"
-    :spaceBetween="10"
-    :slidesPerView="4"
-    :freeMode="true"
-    :watchSlidesProgress="true"
-    :modules="modules"
-    class="mySwiper2 d-none d-md-block"
-    >
-      <SwiperSlide>
-       <div class="img-container">
-         <img
-          class="me-5 img-fluid"
-          :src="targetProduct.imageUrl"
-          :alt="targetProduct.title"
-        />
-       </div>
-      </SwiperSlide>
+      @swiper="setThumbsSwiper"
+      :loop="true"
+      :spaceBetween="24"
+      :slidesPerView="2"
+      :freeMode="true"
+      :watchSlidesProgress="true"
+      :modules="modules"
+      :centeredSlides="false"
+      class="mySwiper2 d-none d-md-block"
+      >
       <SwiperSlide v-for="(img, index) in targetProduct.imagesUrl" :key="img">
         <div class="img-container">
           <img
-          class="me-5 img-fluid"
+          class="img-fluid"
           :src="img"
           :alt="targetProduct.title + index"
+          />
+        </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div class="img-container">
+          <img
+            class="img-fluid"
+            :src="targetProduct.imageUrl"
+            :alt="targetProduct.title"
           />
         </div>
       </SwiperSlide>
@@ -83,7 +84,7 @@
       <p class="productDescription">{{ targetProduct.description }}</p>
       <h3 class="mb-1">價格</h3>
       <p class="fs-3 text-primary mb-5 fw-bold">
-        $NT {{ targetProduct.price }}
+        NT$ {{ numberToCurrencyNo(targetProduct.price) }}
       </p>
       <div class="d-flex justify-content-between mb-5">
         <p>酒精濃度: {{ targetProduct.abv }}</p>
@@ -147,6 +148,7 @@ import 'swiper/css/navigation';
 import cartStore from '@/stores/cartStore';
 import authStore from '../stores/authStore';
 import favProductStore from '../stores/favProductStore';
+import numberToCurrencyNo from '../numberToCurrency';
 
 import CartAlert from './loading/CartAlert.vue';
 
@@ -175,6 +177,7 @@ export default {
     ...mapState(cartStore, ['showToast']),
   },
   methods: {
+    numberToCurrencyNo,
     setThumbsSwiper(swiper) {
       this.thumbsSwiper = swiper;
     },
@@ -232,7 +235,10 @@ export default {
 .mySwiper2 {
   width: 500px;
   height: 100px;
-  cursor: pointer;
+
+  img {
+    cursor: pointer;
+  }
 }
 
 .img-container {

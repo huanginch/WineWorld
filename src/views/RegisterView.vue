@@ -18,7 +18,7 @@
                     placeholder="請輸入帳號"
                     v-model="email"
                     ></VField>
-                    <ErroeMessage name="account"></ErroeMessage>
+                    <ErrorMessage name="account"/>
                 </div>
             </div>
             <div class="row">
@@ -37,7 +37,7 @@
                     }"
                     placeholder="請輸入密碼"
                     v-model="password"></VField>
-                    <ErroeMessage name="password"></ErroeMessage>
+                    <ErrorMessage name="password"/>
                 </div>
             </div>
             <div class="row">
@@ -55,7 +55,7 @@
                     }"
                     placeholder="請再次輸入密碼"
                     v-model="passwordConfirm"></VField>
-                    <ErroeMessage name="passwordConfirm"></ErroeMessage>
+                    <ErrorMessage name="passwordConfirm"/>
                 </div>
             </div>
             <div class="row">
@@ -74,7 +74,7 @@
                         'is-valid': !errors['name'] && name,
                     }"
                     ></VField>
-                    <ErroeMessage name="name"></ErroeMessage>
+                    <ErrorMessage name="name"/>
                 </div>
             </div>
             <div class="row mb-2">
@@ -116,7 +116,7 @@
                         'is-valid': !errors['birth'] && birth,
                     }"
                     ></VField>
-                    <ErroeMessage name="birth"></ErroeMessage>
+                    <ErrorMessage name="birth"/>
                 </div>
             </div>
             <div class="row">
@@ -126,7 +126,7 @@
                     id="phone"
                     name="phone"
                     v-model="phone"
-                    type="text"
+                    type="tel"
                     class="form-control mb-3 text-white"
                     rules="numeric|required"
                     placeholder="請輸入電話"
@@ -135,7 +135,7 @@
                         'is-valid': !errors['phone'] && phone,
                     }"
                     ></VField>
-                    <ErroeMessage name="phone"></ErroeMessage>
+                    <ErrorMessage name="phone"/>
                 </div>
             </div>
             <div class="row mb-5">
@@ -175,13 +175,12 @@
                         'is-valid': !errors['address'] && address,
                     }"
                     ></VField>
-                    <ErroeMessage name="address"></ErroeMessage>
+                    <ErrorMessage name="address"/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 col-md-4 col-lg-2 mx-auto">
-                    <button type="submit" class="btn btn-primary text-white w-100"
-                    @click="register">註冊</button>
+                    <button type="submit" class="btn btn-primary text-white w-100">註冊</button>
                 </div>
             </div>
        </VForm>

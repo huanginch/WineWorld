@@ -197,10 +197,12 @@ export default {
 }
 
 .input-group {
-
+    position: relative;
   .search-icon {
+    position: absolute;
     left: 1%;
     top: 23%;
+    padding: 5px;
 
     @media screen and (min-width: 768px) {
       left: 0%;

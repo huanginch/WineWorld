@@ -26,7 +26,7 @@
                 </td>
                 <td class="text-white">{{ item.product.title }}</td>
                 <td>{{ item.product.capacity }}</td>
-                <td>{{ item.product.price }}</td>
+                <td>NT$ {{ numberToCurrencyNo(item.product.price) }}</td>
                 <td>
                   <button type="button"
                   class="btn btn-primary text-white" @click="toProduct(item.product.id)">查看</button>
@@ -38,6 +38,7 @@
 
 <script>
 import { mapState, mapActions } from 'pinia';
+import numberToCurrencyNo from '../../numberToCurrency';
 
 import favProductStore from '../../stores/favProductStore';
 
@@ -46,6 +47,7 @@ export default {
     ...mapState(favProductStore, ['favProducts']),
   },
   methods: {
+    numberToCurrencyNo,
     toProduct(id) {
       this.$router.push(`/product/${id}`);
     },
@@ -53,6 +55,9 @@ export default {
   },
   mounted() {
     this.getFavProducts();
+    if (this.favProducts.length === 0) {
+      this.$router.push('/product');
+    }
   },
 };
 </script>

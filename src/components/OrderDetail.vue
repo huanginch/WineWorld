@@ -16,15 +16,15 @@
     <tbody>
       <tr v-for="item in targetOrder.products" :key="item.id">
         <td>{{ item.product.title }}</td>
-        <td>{{ item.product.price }}</td>
+        <td>NT$ {{ numberToCurrencyNo(item.product.price) }}</td>
         <td>{{ item.qty }}</td>
-        <td>{{ item.product.price * item.qty }}</td>
+        <td>NT$ {{ numberToCurrencyNo(item.product.price * item.qty) }}</td>
       </tr>
     </tbody>
     <tfoot class="text-center">
       <tr>
         <td colspan="3"></td>
-        <td colspan="1">總價格: {{ targetOrder.total }}</td>
+        <td colspan="1">總價格: NT$ {{ numberToCurrencyNo(targetOrder.total) }}</td>
       </tr>
     </tfoot>
   </table>
@@ -33,6 +33,8 @@
 </template>
 
 <script>
+import numberToCurrencyNo from '../numberToCurrency';
+
 export default {
   name: 'OrderDetail',
   props: ['order'],
@@ -54,6 +56,9 @@ export default {
       },
       deep: true,
     },
+  },
+  methods: {
+    numberToCurrencyNo,
   },
 };
 </script>

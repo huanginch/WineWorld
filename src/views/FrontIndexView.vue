@@ -1,7 +1,9 @@
 <template>
-    <Navbar :isHome="isHome"/>
-    <RouterView/>
-    <FooterComponent :isHome="isHome"/>
+    <div class="frontIndex d-flex flex-column">
+      <Navbar :isHome="isHome"/>
+      <RouterView/>
+      <FooterComponent :isHome="isHome"/>
+    </div>
 </template>
 
 <script>
@@ -37,5 +39,10 @@ export default {
     FooterComponent,
   },
 };
-
 </script>
+
+<style>
+.frontIndex {
+  min-height: 100vh;
+}
+</style>

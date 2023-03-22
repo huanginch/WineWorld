@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section class="mt-auto">
         <div class="footer container text-info">
             <div
             class="d-flex justify-content-between align-items-center border-2
@@ -17,10 +17,10 @@
                     copyright @ 2023 Design:Selina / Code:int
                 </p>
                 <ul class="d-flex list-unstyled align-middle">
-                    <li><a id="line" href="#" class="fs-4">
+                    <li><a id="line" href="#" class="fs-4 me-3">
                         <iconify-icon icon="mingcute:line-app-fill"></iconify-icon>
                     </a></li>
-                    <li><a id="fb" href="#" class="fs-4">
+                    <li><a id="fb" href="#" class="fs-4 me-3">
                         <iconify-icon icon="ri:facebook-circle-fill"></iconify-icon>
                     </a></li>
                     <li><a id="github" href="#" class="fs-4">

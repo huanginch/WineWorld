@@ -45,14 +45,27 @@
       </RouterLink>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-lg-auto mb-2 mb-lg-0">
-          <li class="nav-item">
+          <li class="nav-item mb-5 mb-lg-0">
             <RouterLink @click="toggleMenu"
             class="nav-link py-0" aria-current="page" to="/product"
               >商品列表
               </RouterLink>
           </li>
-          <li class="nav-item me-lg-5">
+          <li class="nav-item me-lg-3 mb-5 mb-lg-0">
             <RouterLink @click="toggleMenu" class="nav-link p-0" to="/faq">常見問題</RouterLink>
+          </li>
+          <li class="me-lg-3">
+            <RouterLink class="cart d-none d-lg-flex align-items-center nav-link py-0" to="/cart">
+              <iconify-icon
+              icon="ph:shopping-cart-fill"
+              width="36"
+              height="36"
+              ></iconify-icon>
+              <div class="position-relative">
+                <div class="triangle"></div>
+                <span class="cart-num badge rounded-0 bg-secondary">{{ totalCart }}</span>
+              </div>
+            </RouterLink>
           </li>
           <li v-if="!isLogged" class="login mt-auto mt-lg-0 pb-3 pb-lg-0">
             <RouterLink
@@ -61,19 +74,6 @@
               to="/login"
               >登入/註冊</RouterLink
             >
-          </li>
-          <li v-if="isLogged">
-            <RouterLink class="cart d-none d-lg-flex align-items-center nav-link py-0" to="/cart">
-              <iconify-icon
-                  icon="ph:shopping-cart-fill"
-                  width="36"
-                  height="36"
-                ></iconify-icon>
-                <div class="position-relative">
-                  <div class="triangle"></div>
-                  <span class="cart-num badge rounded-0 bg-secondary">{{ totalCart }}</span>
-                </div>
-            </RouterLink>
           </li>
           <li v-if="isLogged" class="nav-item dropdown">
             <a

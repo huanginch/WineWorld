@@ -29,7 +29,7 @@
       </div>
       <div class="card-body rounded-0 px-0">
         <h5 class="card-title text-white mb-1">{{ targetProduct.title }}</h5>
-        <p class="card-text text-primary">$NT{{ targetProduct.price }}</p>
+        <p class="card-text text-primary">NT$ {{ numberToCurrencyNo(targetProduct.price) }}</p>
       </div>
     </div>
   </RouterLink>
@@ -39,6 +39,7 @@
 import { mapState, mapActions } from 'pinia';
 import favProductStore from '../stores/favProductStore';
 import authStore from '../stores/authStore';
+import numberToCurrencyNo from '../numberToCurrency';
 
 export default {
   props: ['targetProduct'],
@@ -59,6 +60,7 @@ export default {
     ...mapState(favProductStore, ['favProducts']),
   },
   methods: {
+    numberToCurrencyNo,
     toggleFavorite() {
       if (!this.isLogged) {
         this.$router.push('/login');

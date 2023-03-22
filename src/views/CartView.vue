@@ -1,6 +1,11 @@
 <template>
   <div class='pt-11 container mb-5'>
     <h1 class="text-danger mb-5">我的購物車</h1>
+    <p class="fs-5 text-danger">
+      <span class="text-success me-3">1. 購物車</span>
+      <span class="me-3">2. 填寫資料</span>
+      3. 完成訂單
+    </p>
     <table class='table text-white align-middle text-center'>
       <thead>
         <tr>
@@ -8,7 +13,7 @@
           <th scope='col'>商品名稱</th>
           <th scope='col'>數量</th>
           <th scope="col"></th>
-          <th scope='col'>商品價格</th>
+          <th scope='col' class="mobile-style">商品價格</th>
           <th scope='col'>小計</th>
         </tr>
       </thead>
@@ -41,7 +46,7 @@
               width="36"
               height="36"
               icon="ic:outline-minus"
-              class="align-middle"
+              class="align-middle mobile-style"
               ></iconify-icon>
             </a>
             <input
@@ -62,7 +67,7 @@
             width="36"
             height="36"
             icon="ic:baseline-plus"
-            class="align-middle"
+            class="align-middle mobile-style"
             ></iconify-icon>
           </a>
           </td>
@@ -70,12 +75,12 @@
             <SmallLoading v-if="tempId === cartItem.id"
             class="d-inline align-middle" :active="isLoading"/>
           </td>
-          <td>$NT {{ cartItem.product.price }}</td>
-          <td>$NT {{ cartItem.final_total }}</td>
+          <td class="mobile-style">NT$ {{ numberToCurrencyNo(cartItem.product.price) }}</td>
+          <td>NT$ {{ numberToCurrencyNo(cartItem.final_total) }}</td>
         </tr>
       </tbody>
     </table>
-    <p class='text-end'>總價格: $NT {{ final_total }}</p>
+    <p class='text-end'>總價格: NT$ {{ numberToCurrencyNo(final_total) }}</p>
     <hr />
     <div class='text-end'>
       <a
@@ -112,6 +117,8 @@ import cartStore from '../stores/cartStore';
 
 import SmallLoading from '../components/loading/SmallLoading.vue';
 
+import numberToCurrencyNo from '../numberToCurrency';
+
 export default {
   name: 'CartView',
   data() {
@@ -124,7 +131,13 @@ export default {
     ...mapState(cartStore, ['carts', 'totalCart', 'final_total', 'isLoading']),
   },
   methods: {
+    numberToCurrencyNo,
     ...mapActions(cartStore, ['setCartQty', 'removeCart', 'removeAllCart']),
+  },
+  mounted() {
+    if (this.totalCart === 0) {
+      this.$router.push('/product');
+    }
   },
   components: {
     DeleteConfirmModal,

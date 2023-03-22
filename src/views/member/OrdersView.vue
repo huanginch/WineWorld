@@ -15,7 +15,7 @@
                 <td v-if="!order.is_paid" class="mobile-style">{{ order.id }}</td>
                 <td v-if="!order.is_paid">{{ order.create_at }}</td>
                 <td v-if="!order.is_paid">{{ orderStatus[order.status] }}</td>
-                <td v-if="!order.is_paid">{{ order.total }}</td>
+                <td v-if="!order.is_paid">NT$ {{ numberToCurrencyNo(order.total) }}</td>
                 <td v-if="!order.is_paid">
                     <RouterLink :to="'/member/orders/' + order.id"
                     class="btn btn-danger stretched-link">查看</RouterLink>
@@ -26,6 +26,10 @@
 </template>
 
 <script>
+import { mapState } from 'pinia';
+import numberToCurrencyNo from '../../numberToCurrency';
+import authStore from '../../stores/authStore';
+
 const { VITE_URL, VITE_PATH } = import.meta.env;
 
 export default {
@@ -40,10 +44,14 @@ export default {
       },
     };
   },
+  computed: {
+    ...mapState(authStore, ['user']),
+  },
   methods: {
+    numberToCurrencyNo,
     async getOrders() {
       const res = await this.$http.get(`${VITE_URL}/api/${VITE_PATH}/orders`);
-      this.orders = await res.data.orders;
+      this.orders = await res.data.orders.filter((order) => order.user?.name === this.user.name);
     },
   },
   mounted() {

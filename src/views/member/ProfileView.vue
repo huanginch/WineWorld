@@ -29,14 +29,14 @@
                 name="name"
                 type="text"
                 placeholder="請輸入姓名"
-                v-model="user.name"
+                v-model="tempUser.name"
                 class="form-control profile-input ms-3"
                 :disabled="!edit"
                 ></VField>
             </div>
             <div class="d-flex align-items-center mb-3">
                 <label for="gender" class="text-danger fs-5">性別</label>
-                <select v-model="genderTemp" @change="user.gender = genderTemp;"
+                <select v-model="genderTemp" @change="tempUser.gender = genderTemp;"
                 name="gender" id="gender" class="form-control profile-input gender-input">
                     <option value="">請選擇</option>
                     <option value="female">女</option>
@@ -50,7 +50,7 @@
                 name="birth"
                 type="date"
                 placeholder="請輸入生日"
-                v-model="user.birth"
+                v-model="tempUser.birth"
                 class="form-control profile-input"
                 :disabled="!edit"
                 ></VField>
@@ -62,7 +62,7 @@
                 name="phone"
                 type="text"
                 placeholder="請輸入電話"
-                v-model="user.phone"
+                v-model="tempUser.phone"
                 class="form-control profile-input"
                 :disabled="!edit"
                 ></VField>
@@ -74,7 +74,7 @@
                 name="email"
                 type="text"
                 placeholder="請輸入電子郵件"
-                v-model="user.email"
+                v-model="tempUser.email"
                 class="form-control profile-input"
                 :disabled="!edit"
                 ></VField>
@@ -86,7 +86,7 @@
                 name="address"
                 type="text"
                 placeholder="請輸入地址"
-                v-model="user.addr"
+                v-model="tempUser.addr"
                 class="address-style form-control ps-0 ps-md-5 mb-3 profile-input"
                 :disabled="!edit"
                 ></VField>
@@ -105,6 +105,7 @@ export default {
       edit: false,
       genderTemp: '',
       pwd: '',
+      tempUser: {},
     };
   },
   computed: {
@@ -113,6 +114,8 @@ export default {
   methods: {
     async updateUser() {
       if (!this.pwd) {
+        this.tempUser = { ...this.user };
+        this.genderTemp = this.user.gender;
         this.$swal.fire({
           icon: 'error',
           title: '修改失敗',
@@ -121,23 +124,31 @@ export default {
         return;
       }
       const data = {
-        email: this.user.email,
+        email: this.tempUser.email,
         password: this.pwd,
-        name: this.user.name,
+        name: this.tempUser.name,
         gender: this.genderTemp,
-        phone: this.user.phone,
-        birth: this.user.birth,
-        addr: this.user.addr,
+        phone: this.tempUser.phone,
+        birth: this.tempUser.birth,
+        addr: this.tempUser.addr,
       };
       this.$http.put(`https://wineworld-api.onrender.com/users/${this.user.id}`, data)
         .then((res) => {
           this.setUser(res.data);
+          this.tempUser = { ...this.user };
+          this.$swal.fire({
+            icon: 'success',
+            title: '修改成功',
+            text: '修改成功',
+          });
         })
-        .catch((res) => {
+        .catch((err) => {
+          this.tempUser = { ...this.user };
+          this.genderTemp = this.user.gender;
           this.$swal.fire({
             icon: 'error',
             title: '修改失敗',
-            text: res.data.message,
+            text: err.response.data,
           });
         });
     },
@@ -145,6 +156,7 @@ export default {
   },
   mounted() {
     this.genderTemp = this.user.gender;
+    this.tempUser = { ...this.user };
   },
 };
 </script>

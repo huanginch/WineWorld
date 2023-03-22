@@ -1,9 +1,20 @@
 <template>
   <div class='checkout container pt-5'>
-    <h1 class="text-danger mb-5">結帳</h1>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <h1 class="text-danger mb-5">結帳</h1>
+        <p class="fs-5 text-danger">
+          <span class="me-3">1. 購物車</span>
+          <span class="text-success me-3">2. 填寫資料</span>
+          3. 完成訂單
+    </p>
+      </div>
+    </div>
     <VForm @submit="onSubmit" v-slot="{ errors }">
       <div class="row mb-3">
-        <div class="col-6">
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
           <label for="name" class="form-label">訂購人姓名</label>
           <VField
             id="name"
@@ -20,7 +31,7 @@
           ></VField>
           <error-message name="name" class="invalid-feedback"></error-message>
         </div>
-        <div class="col-6">
+        <div class="col-md-3">
           <label for="tel" class="form-label">訂購人電話</label>
           <VField
             id="tel"
@@ -39,7 +50,8 @@
         </div>
       </div>
       <div class="row mb-3">
-        <div class="col-6">
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
           <label for="email" class="form-label">訂購人Email</label>
           <VField
             id="email"
@@ -58,7 +70,8 @@
         </div>
       </div>
       <div class="row mb-5">
-        <div class="col-">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
           <label for="address" class="form-label">地址</label>
           <VField
             id="address"
@@ -80,7 +93,8 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-12">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
           <div>
             <h3 class="text-danger">商品內容</h3>
             <table class="table text-white">
@@ -96,17 +110,19 @@
                 <tr v-for="cartItem in carts" :key="cartItem.id">
                   <td>{{ cartItem.product.title }}</td>
                   <td>{{ cartItem.qty }}</td>
-                  <td>$NT {{ cartItem.product.price }}</td>
-                  <td>$NT {{ cartItem.final_total }}</td>
+                  <td>NT$ {{ numberToCurrencyNo(cartItem.product.price) }}</td>
+                  <td>NT$ {{ numberToCurrencyNo(cartItem.final_total) }}</td>
                 </tr>
               </tbody>
             </table>
-            <p class="text-end">總價格: $NT {{ final_total }}</p>
+            <p class="text-end">總價格: NT$ {{ numberToCurrencyNo(final_total) }}</p>
           </div>
         </div>
       </div>
       <div class="row mb-5">
-        <h3 class="text-danger mb-3">付款方式</h3>
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <h3 class="text-danger mb-3">付款方式</h3>
         <div>
             <input
             type="radio"
@@ -131,10 +147,13 @@
             class="align-middle me-2"></iconify-icon>
             <label for="creditCard">ATM轉帳</label>
         </div>
+        </div>
       </div>
       <div class="row mb-5">
-        <h3 class="text-danger">發票</h3>
-        <div>
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <h3 class="text-danger">發票</h3>
+          <div>
             <input
             type="radio"
             id="invoice"
@@ -174,10 +193,12 @@
             id="carrier"
             name="carrier"
             class="bg-dark border-white rounded-2 text-white">
+          </div>
         </div>
       </div>
       <div class="row mb-8">
-        <div class="col-12 col-lg-8">
+        <div class="col-3"></div>
+        <div class="col-12 col-lg-6">
           <label for="message" class="mb-2">備註</label>
           <textarea
             v-model="message"
@@ -188,10 +209,15 @@
           ></textarea>
         </div>
       </div>
-      <div class="text-end">
-        <button class="btn btn-primary text-white" type="submit">
-            送出訂單
-        </button>
+      <div class="row">
+        <div class="col-3"></div>
+        <div class="col-12 col-md-6">
+            <div class="text-end">
+              <button class="btn btn-primary text-white" type="submit">
+                送出訂單
+              </button>
+            </div>
+        </div>
       </div>
     </VForm>
   </div>
@@ -201,6 +227,7 @@
 <script>
 import { mapActions, mapState } from 'pinia';
 import cartStore from '../stores/cartStore';
+import numberToCurrencyNo from '../numberToCurrency';
 
 const { VITE_URL, VITE_PATH } = import.meta.env;
 
@@ -223,6 +250,7 @@ export default {
     ...mapState(cartStore, ['carts', 'final_total']),
   },
   methods: {
+    numberToCurrencyNo,
     onSubmit() {
       this.isLoading = true;
       const data = {
