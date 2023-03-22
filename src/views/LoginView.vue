@@ -22,10 +22,10 @@
             placeholder="請輸入帳號/Email"
             v-model="username"
           />
-          <error-message
+          <ErrorMessage
             name="username"
             class="invalid-feedback mb-3"
-          ></error-message>
+          ></ErrorMessage>
           <label for="pwd" class="text-danger fs-4 mb-2">密碼</label>
           <VField
             id="pwd"
@@ -40,7 +40,7 @@
             placeholder="請輸入密碼"
             v-model="password"
           />
-          <error-message name="pwd" class="invalid-feedback"></error-message>
+          <ErrorMessage name="pwd" class="invalid-feedback"></ErrorMessage>
           <button type="submit" class="btn btn-primary mt-3 text-white">
             登入
           </button>
@@ -53,7 +53,6 @@
       </div>
     </div>
   </div>
-  <!-- <MyLoading v-model:active="isLoading"></MyLoading> -->
 </template>
 
 <script>

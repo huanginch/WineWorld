@@ -1,7 +1,7 @@
 <template>
     <div class="pt-5">
       <h4 class="text-danger mb-3">訂單資料</h4>
-      <OrderDetail :order="order"></OrderDetail>
+      <OrderDetail :order="order"/>
     </div>
 </template>
 

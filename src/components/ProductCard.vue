@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{ path: `/product/${targetProduct.id}` }">
+  <RouterLink :to="{ path: `/product/${targetProduct.id}` }">
     <div class="card bg-dark mb-3 mx-auto">
       <div class="card-head mb-2 position-relative">
           <img
@@ -32,7 +32,7 @@
         <p class="card-text text-primary">$NT{{ targetProduct.price }}</p>
       </div>
     </div>
-  </router-link>
+  </RouterLink>
 </template>
 
 <script>

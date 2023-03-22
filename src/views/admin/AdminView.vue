@@ -2,10 +2,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-3 ps-0">
-                <router-view name="aside"></router-view>
+                <RouterView name="aside"></RouterView>
             </div>
             <div class="col-8">
-                <router-view name="main"></router-view>
+                <RouterView name="main"></RouterView>
             </div>
         </div>
     </div>

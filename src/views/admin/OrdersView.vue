@@ -42,9 +42,9 @@
             </tbody>
         </table>
         <PaginationComponent :current_page="pagination.current_page"
-        :total_pages="pagination.total_pages" @page-changed="changePage"></PaginationComponent>
+        :total_pages="pagination.total_pages" @page-changed="changePage"/>
     </div>
-    <orderModal ref="orderModal" :order="order" @update-order="updateOrder"></orderModal>
+    <orderModal ref="orderModal" :order="order" @update-order="updateOrder"/>
     <DelConfirmModal ref="delModal" :message="message" :delFunc="delFunc"/>
     <PageLoading :active="loading"/>
     <AlertModal ref="alertModal" :message="responseMessage"/>

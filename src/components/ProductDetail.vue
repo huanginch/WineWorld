@@ -124,11 +124,11 @@
         >
           加入購物車
         </button>
-        <router-link
+        <RouterLink
           to="/checkout"
           class="btn btn-primary text-white buy-section"
           @click="addToCart(targetProduct.id, qty)"
-          >直接購買</router-link
+          >直接購買</RouterLink
         >
       </div>
     </div>

@@ -60,7 +60,6 @@
 </template>
 
 <script>
-// import { mapActions } from 'pinia';
 import ProductModal from '../../components/admin/ProductModal.vue';
 import DelConfirmModal from '../../components/DelConfirmModal.vue';
 import PaginationComponent from '../../components/PaginationComponent.vue';
@@ -158,7 +157,6 @@ export default {
     changePage(page) {
       this.getProducts(page);
     },
-    // ...mapActions(authStore, ['checkAuth']),
   },
   mounted() {
     this.getProducts();

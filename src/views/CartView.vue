@@ -51,8 +51,7 @@
             class="bg-dark text-white border-0 rounded-0 ps-45"
             style="width: 50px;"
             @change="
-            tempId = cartItem.id,
-            (e) => setCartQty(cartItem.id, e.target.value * 1)"
+            (e) => ( tempId = cartItem.id, setCartQty(cartItem.id, e.target.value * 1))"
             />
             <a href="#"
             @click.prevent="cartItem.qty++;
@@ -69,7 +68,7 @@
           </td>
           <td>
             <SmallLoading v-if="tempId === cartItem.id"
-            class="d-inline align-middle" :active="isLoading"></SmallLoading>
+            class="d-inline align-middle" :active="isLoading"/>
           </td>
           <td>$NT {{ cartItem.product.price }}</td>
           <td>$NT {{ cartItem.final_total }}</td>
@@ -89,20 +88,20 @@
         :class='{ disabled: !totalCart }'
         >清空購物車</a
       >
-      <router-link
+      <RouterLink
         to='/checkout'
         class='btn btn-primary rounded-0'
         :class='{ disabled: !totalCart }'
-        >結帳</router-link
+        >結帳</RouterLink
       >
     </div>
   </div>
 
-  <delete-confirm-modal
+  <DeleteConfirmModal
     ref='deleteModal'
     :message='message'
     :del-func='delFunc'
-  ></delete-confirm-modal>
+  />
 </template>
 
 <script>

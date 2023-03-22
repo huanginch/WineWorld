@@ -22,10 +22,10 @@
             placeholder="請輸入帳號/Email"
             v-model="username"
           />
-          <error-message
+          <ErrorMessage
             name="username"
             class="invalid-feedback mb-3"
-          ></error-message>
+          ></ErrorMessage>
           <label for="pwd" class="mb-2">密碼</label>
           <VField
             id="pwd"
@@ -40,21 +40,19 @@
             placeholder="請輸入密碼"
             v-model="password"
           />
-          <error-message name="pwd" class="invalid-feedback"></error-message>
+          <ErrorMessage name="pwd" class="invalid-feedback"></ErrorMessage>
           <button type="submit" class="btn btn-primary mt-3 text-white">
             登入
           </button>
         </VForm>
-        <router-link to="/" class="text-decoration-underline">回到前台</router-link>
+        <RouterLink to="/" class="text-decoration-underline">回到前台</RouterLink>
       </div>
     </div>
   </div>
-  <MyLoading v-model:active="isLoading"></MyLoading>
+  <MyLoading v-model:active="isLoading"/>
 </template>
 
 <script>
-// import { mapActions } from 'pinia';
-// import authStore from '../stores/authStore';
 
 const { VITE_URL } = import.meta.env;
 

@@ -14,8 +14,6 @@
           type="text"
           class="search-input bg-info border-0 py-3 ps-7 pe-2 mb-3 mb-md-0 text-white"
           placeholder="搜尋"
-          @focus="searchIsActive = true"
-          @blur="searchIsActive = false; searchContent = '';"
           />
           <iconify-icon
           v-if="searchIsActive"
@@ -25,7 +23,7 @@
           @click="searchContent = '';"
           ></iconify-icon>
           <button type="button" class="search-btn btn btn-primary text-white"
-          @click="this.$router.push('/product?keyword=' + searchContent)">立即搜尋</button>
+          @click="this.$router.push(`/product?keyword=${searchContent}`)">立即搜尋</button>
         </div>
       </div>
     </div>
@@ -33,7 +31,7 @@
       <div class="row">
         <div class="col-12 d-flex justify-content-between align-items-center mb-65">
           <h2 class="mb-0 text-danger">熱門商品</h2>
-          <router-link to="/product" class="btn btn-outline-primary text-white">查看更多</router-link>
+          <RouterLink to="/product" class="btn btn-outline-primary text-white">查看更多</RouterLink>
         </div>
         <div class="col-12 col-md-6 col-xl-3">
           <ProductCard :targetProduct="hotProduct1"/>
@@ -51,40 +49,40 @@
     </div>
     <div class="type mb-6 mb-lg-11 w-100">
       <div class="col-12 px-0 d-flex flex-column flex-lg-row">
-          <router-link to="/product?category=威士忌" class="position-relative">
+          <RouterLink to="/product?category=威士忌" class="position-relative">
             <img loading="lazy" src="/種類01.png" class="image-fluid" alt="whisky">
             <div class="text-center position-absolute top-50 start-50 translate-middle">
               <h3>威士忌</h3>
               <p>單麥精釀，精湛工藝</p>
               <button type="button" class="btn btn-primary text-white">立即逛逛</button>
             </div>
-          </router-link>
-          <router-link to="/product?category=紅白酒" class="position-relative">
+          </RouterLink>
+          <RouterLink to="/product?category=紅白酒" class="position-relative">
             <img loading="lazy" src="/種類02.png" class="image-fluid" alt="wine">
             <div class="text-center position-absolute top-50 start-50 translate-middle">
               <h3>紅白酒</h3>
               <p>辛香滿溢，時光醇熟</p>
               <button type="button" class="btn btn-primary text-white">立即逛逛</button>
             </div>
-          </router-link>
+          </RouterLink>
       </div>
       <div class="px-0 d-flex flex-column flex-lg-row w-100">
-          <router-link to="/product?category=日本酒" class="type position-relative">
+          <RouterLink to="/product?category=日本酒" class="type position-relative">
             <img loading="lazy" src="/種類03.png" class="image-fluid" alt="sake">
             <div class="text-center position-absolute top-50 start-50 translate-middle">
               <h3>日本酒</h3>
               <p>清香獨特，米香濃郁</p>
               <button type="button" class="btn btn-primary text-white">立即逛逛</button>
             </div>
-          </router-link>
-          <router-link to="/product?category=利口酒" class="type position-relative">
+          </RouterLink>
+          <RouterLink to="/product?category=利口酒" class="type position-relative">
             <img loading="lazy" src="/種類04.png" class="image-fluid" alt="liquir">
             <div class="text-center position-absolute top-50 start-50 translate-middle">
               <h3>利口酒</h3>
               <p>巧手製作，風味多樣</p>
               <button type="button" class="btn btn-primary text-white">立即逛逛</button>
             </div>
-          </router-link>
+          </RouterLink>
       </div>
     </div>
     <div class="faq container mb-11">
@@ -120,7 +118,7 @@
       </div>
     </div>
     <WarningComponent class="warning position-fixed bottom-0 start-0 end-0"/>
-    <PageLoading :active="isLoading"></PageLoading>
+    <PageLoading :active="isLoading"/>
   </section>
 </template>
 
@@ -154,6 +152,13 @@ export default {
     hotProduct4() {
       if (this.hotProduct4.imageUrl !== undefined) {
         this.isLoading = false;
+      }
+    },
+    searchContent() {
+      if (this.searchContent.length > 0) {
+        this.searchIsActive = true;
+      } else {
+        this.searchIsActive = false;
       }
     },
   },

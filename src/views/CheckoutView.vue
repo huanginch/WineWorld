@@ -195,7 +195,7 @@
       </div>
     </VForm>
   </div>
-  <MyLoading v-model:active="isLoading"></MyLoading>
+  <MyLoading v-model:active="isLoading"/>
 </template>
 
 <script>
@@ -228,7 +228,7 @@ export default {
       const data = {
         user: this.user,
         message: this.message,
-        status: 0,
+        status: '0',
       };
       this.$http
         .post(`${VITE_URL}/api/${VITE_PATH}/order`, { data })
@@ -241,7 +241,7 @@ export default {
           this.$swal({
             icon: 'success',
             title: '訂單已送出',
-            text: res.response.data.message,
+            text: res.data.message,
             confirmButtonText: '確認',
           });
           // 清空表單

@@ -28,7 +28,7 @@
       </tr>
     </tfoot>
   </table>
-  <p>訂單狀態：{{ orderStatus[targetOrder.status] }}</p>
+  <p>訂單狀態：{{ targetOrder.status === '' ? orderStatus[targetOrder.status] : '已成立' }}</p>
   <p>訂單日期：{{ targetOrder.create_at }}</p>
 </template>
 

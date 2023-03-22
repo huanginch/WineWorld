@@ -4,7 +4,7 @@
       <h3 class="text-danger mt-8 mt-lg-0">你可能會喜歡</h3>
       <RelatedProduct :related-products="relatedProducts" class="mt-11"></RelatedProduct>
     </div>
-    <PageLoading :active="isLoading"></PageLoading>
+    <PageLoading :active="isLoading"/>
 </template>
 
 <script>

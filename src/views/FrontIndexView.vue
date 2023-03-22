@@ -1,7 +1,7 @@
 <template>
-    <Navbar :isHome="isHome"></Navbar>
-    <router-view></router-view>
-    <FooterComponent :isHome="isHome"></FooterComponent>
+    <Navbar :isHome="isHome"/>
+    <RouterView/>
+    <FooterComponent :isHome="isHome"/>
 </template>
 
 <script>

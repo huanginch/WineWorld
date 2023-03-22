@@ -14,9 +14,9 @@
     <Pagination
     v-model:current_page="currentPage"
     v-model:total_pages="totalPages"
-    @page-changed="changePage"></Pagination>
+    @page-changed="changePage"/>
   </div>
-  <PageLoading :active="isLoading"></PageLoading>
+  <PageLoading :active="isLoading"/>
 </template>
 
 <script>

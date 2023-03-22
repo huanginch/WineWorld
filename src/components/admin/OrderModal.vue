@@ -6,7 +6,7 @@
     aria-labelledby="orderModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content rounded-0">
+        <div class="modal-content bg-dark rounded-0">
             <div class="modal-header rounded-0 bg-secondary text-white">
                 <h5 class="modal-title" id="orderModalLabel">訂單編號: {{ tempOrder.id }}</h5>
                 <button

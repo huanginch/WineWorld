@@ -17,8 +17,8 @@
                 <td v-if="!order.is_paid">{{ orderStatus[order.status] }}</td>
                 <td v-if="!order.is_paid">{{ order.total }}</td>
                 <td v-if="!order.is_paid">
-                    <router-link :to="'/member/orders/' + order.id"
-                    class="btn btn-danger stretched-link">查看</router-link>
+                    <RouterLink :to="'/member/orders/' + order.id"
+                    class="btn btn-danger stretched-link">查看</RouterLink>
                 </td>
             </tr>
         </tbody>

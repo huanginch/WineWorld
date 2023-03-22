@@ -18,7 +18,7 @@
                     placeholder="請輸入帳號"
                     v-model="email"
                     ></VField>
-                    <error-message name="account"></error-message>
+                    <ErroeMessage name="account"></ErroeMessage>
                 </div>
             </div>
             <div class="row">
@@ -37,7 +37,7 @@
                     }"
                     placeholder="請輸入密碼"
                     v-model="password"></VField>
-                    <error-message name="password"></error-message>
+                    <ErroeMessage name="password"></ErroeMessage>
                 </div>
             </div>
             <div class="row">
@@ -55,7 +55,7 @@
                     }"
                     placeholder="請再次輸入密碼"
                     v-model="passwordConfirm"></VField>
-                    <error-message name="passwordConfirm"></error-message>
+                    <ErroeMessage name="passwordConfirm"></ErroeMessage>
                 </div>
             </div>
             <div class="row">
@@ -74,7 +74,7 @@
                         'is-valid': !errors['name'] && name,
                     }"
                     ></VField>
-                    <error-message name="name"></error-message>
+                    <ErroeMessage name="name"></ErroeMessage>
                 </div>
             </div>
             <div class="row mb-2">
@@ -116,7 +116,7 @@
                         'is-valid': !errors['birth'] && birth,
                     }"
                     ></VField>
-                    <error-message name="birth"></error-message>
+                    <ErroeMessage name="birth"></ErroeMessage>
                 </div>
             </div>
             <div class="row">
@@ -135,7 +135,7 @@
                         'is-valid': !errors['phone'] && phone,
                     }"
                     ></VField>
-                    <error-message name="phone"></error-message>
+                    <ErroeMessage name="phone"></ErroeMessage>
                 </div>
             </div>
             <div class="row mb-5">
@@ -175,7 +175,7 @@
                         'is-valid': !errors['address'] && address,
                     }"
                     ></VField>
-                    <error-message name="address"></error-message>
+                    <ErroeMessage name="address"></ErroeMessage>
                 </div>
             </div>
             <div class="row">
