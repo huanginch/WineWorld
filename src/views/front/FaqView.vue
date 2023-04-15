@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import OrderFAQ from '../components/OrderFAQ.vue';
-import WineFAQ from '../components/WineFAQ.vue';
+import OrderFAQ from '../../components/OrderFAQ.vue';
+import WineFAQ from '../../components/WineFAQ.vue';
 
 export default {
   name: 'FaqView',

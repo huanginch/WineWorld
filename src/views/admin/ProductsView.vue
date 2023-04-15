@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div v-if="!loading" class="container">
         <div
         class="pt-10 d-flex align-items-center justify-content-between align-middle">
             <h1 class="mt-0 mb-3">產品管理</h1>

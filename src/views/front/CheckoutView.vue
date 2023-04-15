@@ -15,7 +15,7 @@
       <div class="row mb-3">
         <div class="col-md-3"></div>
         <div class="col-md-3">
-          <label for="name" class="form-label">訂購人姓名</label>
+          <label for="name" class="form-label">* 訂購人姓名</label>
           <VField
             id="name"
             name="name"
@@ -32,7 +32,7 @@
           <error-message name="name" class="invalid-feedback"></error-message>
         </div>
         <div class="col-md-3">
-          <label for="tel" class="form-label">訂購人電話</label>
+          <label for="tel" class="form-label">* 訂購人電話</label>
           <VField
             id="tel"
             name="tel"
@@ -52,7 +52,7 @@
       <div class="row mb-3">
         <div class="col-md-3"></div>
         <div class="col-md-3">
-          <label for="email" class="form-label">訂購人Email</label>
+          <label for="email" class="form-label">* 訂購人Email</label>
           <VField
             id="email"
             name="email"
@@ -72,7 +72,7 @@
       <div class="row mb-5">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-          <label for="address" class="form-label">地址</label>
+          <label for="address" class="form-label">* 地址</label>
           <VField
             id="address"
             name="address"
@@ -226,8 +226,8 @@
 
 <script>
 import { mapActions, mapState } from 'pinia';
-import cartStore from '../stores/cartStore';
-import numberToCurrencyNo from '../numberToCurrency';
+import cartStore from '../../stores/cartStore';
+import numberToCurrencyNo from '../../numberToCurrency';
 
 const { VITE_URL, VITE_PATH } = import.meta.env;
 

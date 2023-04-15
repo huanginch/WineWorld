@@ -18,7 +18,7 @@
           height="36"
           class="me-1"
         ></iconify-icon>
-        <div class="position-relative">
+        <div v-if="totalCart != 0" class="position-relative">
           <div class="triangle"></div>
           <span class="cart-num badge rounded-0 bg-secondary">{{ totalCart }}</span>
         </div>
@@ -61,7 +61,7 @@
               width="36"
               height="36"
               ></iconify-icon>
-              <div class="position-relative">
+              <div v-if="totalCart != 0" class="position-relative">
                 <div class="triangle"></div>
                 <span class="cart-num badge rounded-0 bg-secondary">{{ totalCart }}</span>
               </div>

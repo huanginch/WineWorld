@@ -4,7 +4,7 @@
         <VForm v-slot="{ errors }" @submit="register()">
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-4 mx-auto">
-                    <label for="account" class="text-danger mb-3 fs-4">帳號</label>
+                    <label for="account" class="text-danger mb-3 fs-4">* 帳號</label>
                     <VField
                     id="account"
                     name="account"
@@ -23,7 +23,7 @@
             </div>
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-4 mx-auto">
-                    <label for="password" class="text-danger mb-3 fs-4">密碼</label>
+                    <label for="password" class="text-danger mb-3 fs-4">* 密碼</label>
                     <VField
                     id="password"
                     name="password"
@@ -42,7 +42,7 @@
             </div>
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-4 mx-auto">
-                    <label for="passwordConfirm" class="text-danger mb-3 fs-4">確認密碼</label>
+                    <label for="passwordConfirm" class="text-danger mb-3 fs-4">* 確認密碼</label>
                     <VField
                     id="passwordConfirm"
                     name="passwordConfirm"
@@ -60,7 +60,7 @@
             </div>
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-4 mx-auto">
-                    <label for="name" class="text-danger fs-4 mb-3">姓名</label>
+                    <label for="name" class="text-danger fs-4 mb-3">* 姓名</label>
                     <VField
                     id="name"
                     name="name"
@@ -80,7 +80,7 @@
             <div class="row mb-2">
                 <div class="col-12 col-md-6 col-lg-4 mx-auto">
                     <label for="gender"
-                    class="d-block text-danger fs-4 mb-2">性別</label>
+                    class="d-block text-danger fs-4 mb-2">* 性別</label>
                     <VField name="gender" type="radio" :value="false"
                     >
                         <label class="me-5">
@@ -102,7 +102,7 @@
             </div>
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-4 mx-auto">
-                    <label for="birth" class="text-danger fs-4 mb-2">生日</label>
+                    <label for="birth" class="text-danger fs-4 mb-2">* 生日</label>
                     <VField
                     id="birth"
                     name="birth"
@@ -121,7 +121,7 @@
             </div>
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-4 mx-auto">
-                    <label for="phone" class="text-danger fs-4 mb-2">電話</label>
+                    <label for="phone" class="text-danger fs-4 mb-2">* 電話</label>
                     <VField
                     id="phone"
                     name="phone"
@@ -140,7 +140,7 @@
             </div>
             <div class="row mb-5">
                 <div class="col-12 col-md-8 mx-auto">
-                    <label for="address" class="text-danger fs-4 mb-2">地址</label>
+                    <label for="address" class="text-danger fs-4 mb-2">* 地址</label>
                     <div class="row mb-3">
                         <div class="col-12 col-md-6 col-lg-4 mb-3 mb-lg-0">
                             <select class="form-select" v-model="city">
@@ -188,7 +188,7 @@
 </template>
 
 <script>
-import TaiwanCountryData from '../../TaiwanCountryData.json';
+import TaiwanCountryData from '../../../TaiwanCountryData.json';
 
 export default {
   name: 'RegisterView',

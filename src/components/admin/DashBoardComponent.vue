@@ -1,7 +1,7 @@
 <template>
     <aside class="dashboard d-flex flex-column ps-6 pe-8 bg-light">
         <h2 class="text-white mb-5">歡迎使用後台</h2>
-        <RouterLink to="/admin/products" class="dashboard-link mb-3 fs-5">產品管理</RouterLink>
+        <RouterLink to="/admin" class="dashboard-link mb-3 fs-5">產品管理</RouterLink>
         <RouterLink to="/admin/orders" class="dashboard-link mb-3 fs-5">訂單管理</RouterLink>
         <RouterLink to="/admin-login"
         class="signOut mb-3 fs-5 text-decoration-none"

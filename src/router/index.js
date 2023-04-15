@@ -11,42 +11,42 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: () => import('../views/FrontIndexView.vue'),
+      component: () => import('../views/front/FrontIndexView.vue'),
       children: [
         {
           path: '',
           name: 'home',
-          component: () => import('../views/HomeView.vue'),
+          component: () => import('../views/front/HomeView.vue'),
         },
         {
           path: 'login',
           name: 'login',
-          component: () => import('../views/LoginView.vue'),
+          component: () => import('../views/front/LoginView.vue'),
         },
         {
           path: 'register',
           name: 'register',
-          component: () => import('../views/RegisterView.vue'),
+          component: () => import('../views/front/RegisterView.vue'),
         },
         {
           path: 'product',
           name: 'product',
-          component: () => import('../views/ProductView.vue'),
+          component: () => import('../views/front/ProductView.vue'),
         },
         {
           path: 'product/:id',
           name: 'product-detail',
-          component: () => import('../views/ProductDetailView.vue'),
+          component: () => import('../views/front/ProductDetailView.vue'),
         },
         {
           path: 'faq',
           name: 'faq',
-          component: () => import('../views/FaqView.vue'),
+          component: () => import('../views/front/FaqView.vue'),
         },
         {
           path: 'cart',
           name: 'cart',
-          component: () => import('../views/CartView.vue'),
+          component: () => import('../views/front/CartView.vue'),
           beforeEnter: (to, from, next) => {
             const { isLogged } = authStore();
             if (isLogged) {
@@ -59,7 +59,7 @@ const router = createRouter({
         {
           path: 'checkout',
           name: 'checkout',
-          component: () => import('../views/CheckoutView.vue'),
+          component: () => import('../views/front/CheckoutView.vue'),
         },
         {
           path: 'member',
@@ -109,7 +109,7 @@ const router = createRouter({
       component: () => import('../views/admin/AdminView.vue'),
       children: [
         {
-          path: 'products',
+          path: '',
           name: 'admin-products',
           components: {
             aside: () => import('../components/admin/DashBoardComponent.vue'),

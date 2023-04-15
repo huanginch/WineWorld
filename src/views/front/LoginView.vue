@@ -8,7 +8,7 @@
           v-slot="{ errors }"
           class="mb-5"
         >
-          <label for="username" class="text-danger fs-4 mb-2">帳號</label>
+          <label for="username" class="text-danger fs-4 mb-2">* 帳號</label>
           <VField
             id="username"
             name="username"
@@ -26,7 +26,7 @@
             name="username"
             class="invalid-feedback mb-3"
           ></ErrorMessage>
-          <label for="pwd" class="text-danger fs-4 mb-2">密碼</label>
+          <label for="pwd" class="text-danger fs-4 mb-2">* 密碼</label>
           <VField
             id="pwd"
             name="pwd"
@@ -57,7 +57,7 @@
 
 <script>
 import { mapActions } from 'pinia';
-import authStore from '../stores/authStore';
+import authStore from '../../stores/authStore';
 
 export default {
   name: 'LoginView',

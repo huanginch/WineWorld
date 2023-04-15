@@ -21,11 +21,11 @@
 
 <script>
 import { mapActions, mapState } from 'pinia';
-import productsStore from '../stores/productsStore';
+import productsStore from '../../stores/productsStore';
 
-import Pagination from '../components/PaginationComponent.vue';
-import ProductCard from '../components/ProductCard.vue';
-import SearchBar from '../components/SearchBarComponent.vue';
+import Pagination from '../../components/PaginationComponent.vue';
+import ProductCard from '../../components/ProductCard.vue';
+import SearchBar from '../../components/SearchBarComponent.vue';
 
 export default {
   name: 'ProductView',

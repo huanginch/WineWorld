@@ -11,7 +11,7 @@
 import { mapActions } from 'pinia';
 import ProductDetail from '@/components/ProductDetail.vue';
 import RelatedProduct from '@/components/RelatedProduct.vue';
-import productsStore from '../stores/productsStore';
+import productsStore from '../../stores/productsStore';
 
 export default {
   name: 'ProductDetailView',

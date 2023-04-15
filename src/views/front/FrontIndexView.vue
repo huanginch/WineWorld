@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import Navbar from '../components/NavbarComponent.vue';
-import FooterComponent from '../components/FooterComponent.vue';
+import Navbar from '../../components/NavbarComponent.vue';
+import FooterComponent from '../../components/FooterComponent.vue';
 
 export default {
   name: 'FrontIndexView',

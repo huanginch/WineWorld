@@ -8,7 +8,7 @@
           v-slot="{ errors }"
           class="mb-5"
         >
-          <label for="username" class="mb-2">帳號</label>
+          <label for="username" class="mb-2">* 帳號</label>
           <VField
             id="username"
             name="username"
@@ -25,8 +25,8 @@
           <ErrorMessage
             name="username"
             class="invalid-feedback mb-3"
-          ></ErrorMessage>
-          <label for="pwd" class="mb-2">密碼</label>
+          />
+          <label for="pwd" class="mb-2">* 密碼</label>
           <VField
             id="pwd"
             name="pwd"
@@ -40,7 +40,7 @@
             placeholder="請輸入密碼"
             v-model="password"
           />
-          <ErrorMessage name="pwd" class="invalid-feedback"></ErrorMessage>
+          <ErrorMessage name="pwd" class="invalid-feedback"/>
           <button type="submit" class="btn btn-primary mt-3 text-white">
             登入
           </button>
@@ -81,7 +81,7 @@ export default {
             showConfirmButton: false,
             timer: 1500,
           });
-          this.$router.push('/admin/products');
+          this.$router.push('/admin');
         })
         .catch((err) => {
           this.$swal.fire({

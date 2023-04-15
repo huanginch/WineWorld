@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div v-if="!loading" class="container">
         <h1>訂單管理</h1>
         <table class="table text-center align-middle">
             <thead>
@@ -73,7 +73,7 @@ export default {
   },
   methods: {
     getOrders(page = 1) {
-      // this.loading = true;
+      this.loading = true;
       this.$http
         .get(`${VITE_URL}/api/${VITE_PATH}/admin/orders?page=${page}`)
         .then((res) => {

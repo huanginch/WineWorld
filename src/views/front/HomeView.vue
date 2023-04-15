@@ -125,15 +125,15 @@
 <script>
 import { mapActions } from 'pinia';
 
-import authStore from '../stores/authStore';
-import cartStore from '../stores/cartStore';
-import productsStore from '../stores/productsStore';
-import favProductStore from '../stores/favProductStore';
+import authStore from '../../stores/authStore';
+import cartStore from '../../stores/cartStore';
+import productsStore from '../../stores/productsStore';
+import favProductStore from '../../stores/favProductStore';
 
-import ProductCard from '../components/ProductCard.vue';
-import WarningComponent from '../components/WarningComponent.vue';
-import WineFAQ from '../components/WineFAQ.vue';
-import PageLoading from '../components/loading/PageLoading.vue';
+import ProductCard from '../../components/ProductCard.vue';
+import WarningComponent from '../../components/WarningComponent.vue';
+import WineFAQ from '../../components/WineFAQ.vue';
+import PageLoading from '../../components/loading/PageLoading.vue';
 
 export default {
   name: 'HomeView',

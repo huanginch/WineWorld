@@ -1,12 +1,12 @@
 <template>
-  <div class='pt-11 container mb-5'>
+  <div class='pt-11 container mb-5 overflow-hidden'>
     <h1 class="text-danger mb-5">我的購物車</h1>
     <p class="fs-5 text-danger">
       <span class="text-success me-3">1. 購物車</span>
       <span class="me-3">2. 填寫資料</span>
       3. 完成訂單
     </p>
-    <table class='table text-white align-middle text-center'>
+    <table class='table text-white align-middle text-center text-nowrap'>
       <thead>
         <tr>
           <th scope='col'></th>
@@ -112,12 +112,12 @@
 <script>
 import { mapState, mapActions } from 'pinia';
 
-import DeleteConfirmModal from '../components/DelConfirmModal.vue';
-import cartStore from '../stores/cartStore';
+import DeleteConfirmModal from '../../components/DelConfirmModal.vue';
+import cartStore from '../../stores/cartStore';
 
-import SmallLoading from '../components/loading/SmallLoading.vue';
+import SmallLoading from '../../components/loading/SmallLoading.vue';
 
-import numberToCurrencyNo from '../numberToCurrency';
+import numberToCurrencyNo from '../../numberToCurrency';
 
 export default {
   name: 'CartView',
